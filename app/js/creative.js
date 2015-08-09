@@ -74,7 +74,7 @@ $(document).ready(function () {
     var element = $('.portfolio-box-caption:eq(0)');
     var eHeight = element.height();
     var point1 = (wHeight - eHeight) / 2;
-    var point2 = point1 + eHeight / 2;
+    var point2 = point1 + eHeight / 3;
     window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(0)'), point1, point2));
     window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(1)'), point1, point2));
     window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(2)'), point1, point2));
@@ -92,7 +92,6 @@ $(document).ready(function () {
             var clientTop = element.offset().top - jWindow.scrollTop();
             var clientBottom = clientTop + eHeight;
             if (clientTop < point2) {
-                $('.showing').removeClass('showing');
                 element.addClass('showing');
             }
             if (clientBottom < point1) {
