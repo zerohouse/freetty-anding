@@ -68,27 +68,37 @@
 $(document).ready(function () {
     var jWindow = $(window);
     var wHeight = jWindow.height();
+
     var l = $('.portfolio-box-caption').length;
     for (var i = 0; i < l; i++) {
         var element = $('.portfolio-box-caption:eq(' + i + ')');
         var eHeight = element.height();
-        var point = (wHeight - eHeight) / 2;
-        var point2 = point + eHeight;
+        var point1 = (wHeight - eHeight) / 2;
+        var point2 = point1 + eHeight;
 
-        (function (element) {
-            jWindow.scroll(function () {
-                var clientTop = element.offset().top - jWindow.scrollTop();
-                var clientBottom = clientTop + eHeight;
-                if (clientTop < point2) {
-                    element.addClass('showing');
-                }
-                if (clientBottom < point) {
-                    element.removeClass('showing');
-                }
-                if (clientTop > point2) {
-                    element.removeClass('showing');
-                }
-            });
-        })(element)
+        window.requestAnimationFrame(scroll(element, point1, point2));
     }
+
+
+    function scroll(element, point1, point2) {
+        function callback() {
+            var clientTop = element.offset().top - jWindow.scrollTop();
+            var clientBottom = clientTop + eHeight;
+            if (clientTop < point2) {
+                element.addClass('showing');
+            }
+            if (clientBottom < point1) {
+                element.removeClass('showing');
+            }
+            if (clientTop > point2) {
+                element.removeClass('showing');
+            }
+            //console.log(clientTop, clientBottom, element, point1, point2, eHeight)
+            window.requestAnimationFrame(callback);
+        }
+
+        return callback;
+    }
+
+
 });
