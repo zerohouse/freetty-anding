@@ -305,10 +305,6 @@ header .header-content .header-content-inner p {
     font-size: 18px;
 }
 
-.portfolio-box:hover .portfolio-box-caption {
-    opacity: 1;
-}
-
 @media (min-width: 768px) {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
         font-size: 16px;
@@ -517,6 +513,12 @@ body {
     transition: 0.35s;
 }
 
+@media (min-width: 768px) {
+    .portfolio-box:hover .portfolio-box-caption {
+        opacity: 1;
+    }
+}
+
 .project-category {
     margin-top: 100px;
     font-size: 14px !important;
@@ -525,4 +527,10 @@ body {
 
 body {
     word-break: keep-all !important;
+}
+
+@media (max-width: 768px) {
+    .showing {
+        opacity: 1 !important;
+    }
 }

@@ -66,13 +66,28 @@
 
 
 $(document).ready(function () {
-    $('#sticky-navigation').scrollspy({
-        min: $('#nav').offset().top,
-        onEnter: function (element, position) {
-            $("#nav").addClass('fixed');
-        },
-        onLeave: function (element, position) {
-            $("#nav").removeClass('fixed');
-        }
+    var jWindow = $(window);
+    var wHeight = jWindow.height();
+    $('.portfolio-box-caption').each(function (i) {
+        var element = $(this);
+        var eHeight = element.height();
+        var point = (wHeight - eHeight) / 2;
+        var point2 = point + eHeight;
+        (function (element) {
+            jWindow.scroll(function () {
+                var clientTop = element.offset().top - jWindow.scrollTop();
+                var clientBottom = clientTop + eHeight;
+                if (clientTop < point2) {
+                    element.addClass('showing');
+                }
+                if (clientBottom < point) {
+                    element.removeClass('showing');
+                }
+                if (clientTop > point2) {
+                    element.removeClass('showing');
+                }
+            });
+        })(element);
+
     });
 });
