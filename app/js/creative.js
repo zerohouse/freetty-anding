@@ -70,14 +70,17 @@ $(document).ready(function () {
     var wHeight = jWindow.height();
 
     var l = $('.portfolio-box-caption').length;
-    for (var i = 0; i < l; i++) {
-        var element = $('.portfolio-box-caption:eq(' + i + ')');
-        var eHeight = element.height();
-        var point1 = (wHeight - eHeight) / 2;
-        var point2 = point1 + eHeight;
 
-        window.requestAnimationFrame(scroll(element, point1, point2));
-    }
+    var element = $('.portfolio-box-caption:eq(0)');
+    var eHeight = element.height();
+    var point1 = (wHeight - eHeight) / 2;
+    var point2 = point1 + eHeight;
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(0)'), point1, point2));
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(1)'), point1, point2));
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(2)'), point1, point2));
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(3)'), point1, point2));
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(4)'), point1, point2));
+    window.requestAnimationFrame(scroll($('.portfolio-box-caption:eq(5)'), point1, point2));
 
 
     function scroll(element, point1, point2) {
