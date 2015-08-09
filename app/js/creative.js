@@ -68,11 +68,13 @@
 $(document).ready(function () {
     var jWindow = $(window);
     var wHeight = jWindow.height();
-    $('.portfolio-box-caption').each(function (i) {
-        var element = $(this);
+    var l = $('.portfolio-box-caption').length;
+    for (var i = 0; i < l; i++) {
+        var element = $('.portfolio-box-caption:eq(' + i + ')');
         var eHeight = element.height();
         var point = (wHeight - eHeight) / 2;
         var point2 = point + eHeight;
+
         (function (element) {
             jWindow.scroll(function () {
                 var clientTop = element.offset().top - jWindow.scrollTop();
@@ -87,7 +89,6 @@ $(document).ready(function () {
                     element.removeClass('showing');
                 }
             });
-        })(element);
-
-    });
+        })(element)
+    }
 });
