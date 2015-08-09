@@ -530,6 +530,8 @@ body {
 }
 
 body {
+    -webkit-word-break: keep-all !important;
+    -ms-word-break: keep-all !important;
     word-break: keep-all !important;
 }
 

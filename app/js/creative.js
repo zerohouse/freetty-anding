@@ -84,7 +84,11 @@ $(document).ready(function () {
 
 
     function scroll(element, point1, point2) {
-        function callback() {
+        function callback(tick) {
+            if (parseInt(tick) % 5 != 0) {
+                window.requestAnimationFrame(callback);
+                return;
+            }
             var clientTop = element.offset().top - jWindow.scrollTop();
             var clientBottom = clientTop + eHeight;
             if (clientTop < point2) {
@@ -97,7 +101,6 @@ $(document).ready(function () {
             if (clientTop > point2) {
                 element.removeClass('showing');
             }
-            //console.log(clientTop, clientBottom, element, point1, point2, eHeight)
             window.requestAnimationFrame(callback);
         }
 
