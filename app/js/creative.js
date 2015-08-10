@@ -48,16 +48,27 @@
 
     window.requestAnimationFrame(timeUpdate);
 
-    var open = new Date(2015, 10, 1);
+    var open = new Date(2015, 9, 1);
 
     function remainTime() {
         var date = new Date();
-        var remain = new Date(open - date);
-        return remain.getDate() + "d " + remain.getHours() + "h " + remain.getMinutes() + "m " + remain.getSeconds() + "s"
+        var remain = open - date;
+        var sec = parseInt(remain / 1000);
+        var min = parseInt(sec / 60);
+        var hours = parseInt(min / 60);
+        var days = parseInt(hours / 24);
+
+        return days + "d " + hours % 24 + "h " + two(min % 60) + "m " + two(sec % 60) + "s";
+
+        function two(a) {
+            if (a < 10)
+                return "0" + a;
+            return a;
+        }
     }
 
     function timeUpdate(tick) {
-        $('#dday').text(remainTime());
+        $('.d-c-day').text(remainTime());
         window.requestAnimationFrame(timeUpdate);
     }
 

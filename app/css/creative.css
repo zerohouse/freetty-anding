@@ -540,3 +540,66 @@ body {
         opacity: 1 !important;
     }
 }
+
+#register {
+    text-align: center;
+}
+
+#register .modal-header {
+    background-color: #EA435C;
+    color: white;
+    border: none;
+    text-align: left;
+}
+
+#register .ok {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #EA435C;
+    color: white;
+}
+
+#register p {
+    font-size: 14px;
+}
+
+#launch {
+    background-image: url(/img/img.jpg);
+    color: white;
+    height: 210px;
+    background-size: cover;
+    letter-spacing: 9px;
+    background-position: center -110px;
+}
+
+#launch .d-c-day {
+    font-size: 2rem;
+}
+
+#launch > div {
+    margin-top: 75px;
+}
+
+#launch .border {
+    width: 50px;
+    height: 2px;
+    border-top: 1px solid #EA435C;
+    margin: 20px auto;
+}
+
+#register .em {
+    color: #EA435C;
+}
+
+#register .inverse {
+    color: white;
+    background-color: #333435;
+}
+
+#register input {
+    margin-bottom: 10px;
+}
+
+#register .input-group {
+    margin: auto;
+}
