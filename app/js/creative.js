@@ -178,9 +178,9 @@ condition.phoneCheck = function () {
 }
 
 
-$('#email').bind('keydown keypress', condition.emailCheck);
-$('#name').bind('keydown keypress', condition.nameCheck);
-$('#phone').bind('keydown keypress', condition.phoneCheck);
+$('#email').bind('keydown keypress change', condition.emailCheck);
+$('#name').bind('keydown keypress change', condition.nameCheck);
+$('#phone').bind('keydown keypress change', condition.phoneCheck);
 
 
 function validateEmail(email) {
