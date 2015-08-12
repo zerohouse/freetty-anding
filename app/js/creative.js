@@ -208,6 +208,8 @@ $('#register-btn').bind('click', function () {
             $('.show-when-ok').show();
             setTimeout(function () {
                 $('.modal').hide("fade", 500);
+                $('.hide-when-ok').show();
+                $('.show-when-ok').hide();
             }, 3000);
         });
 });
