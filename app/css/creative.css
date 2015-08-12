@@ -564,6 +564,7 @@ body {
     border-radius: 5px;
     background-color: #EA435C;
     color: white;
+    outline: none;
 }
 
 #register p {
@@ -615,4 +616,57 @@ body {
     font-size: 80%;
     letter-spacing: 3px;
     line-height: 45px;
+}
+
+.img {
+    width: 70%;
+    margin-top: 20px;
+}
+
+.border {
+    border-bottom: 1px solid #EA435C;
+    width: 56px;
+    margin: auto;
+}
+
+#artist {
+    background-color: #007c8b;
+    color: #fef6e6;
+}
+
+#artist h2 {
+    color: #fff;
+}
+
+#artist .primary {
+    border-color: #ddb2ab;
+}
+
+p {
+    font-size: 113% !important;
+}
+
+.register-btn {
+    padding: 0 10px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+.margin {
+    margin: 25px 0;
+}
+
+.close {
+    opacity: 1;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) !important;
 }

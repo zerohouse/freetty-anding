@@ -119,3 +119,95 @@ $(document).ready(function () {
 
 
 });
+
+
+function show() {
+    $('#q').animate({
+        'paddingBottom': '+=1500px'
+    }, "normal", function () {
+        $('#q').hide('fade', 300, function () {
+            $('#a').show('fade', 300, function () {
+                $('html, body').stop().animate({
+                    scrollTop: ($('#artist').offset().top - 50)
+                }, 1250, 'easeInOutExpo');
+            });
+        });
+    });
+
+}
+
+var condition = {
+    email: false,
+    name: false,
+    phone: false
+
+};
+
+
+condition.emailCheck = function () {
+    if (validateEmail($(this).val())) {
+        $(this).css('color', '#000');
+        condition.email = true;
+        return;
+    }
+    condition.email = false;
+    $(this).css('color', '#E9425D');
+};
+
+
+condition.nameCheck = function () {
+    var re = new RegExp("^[a-z가-힇]{2,}$", 'ig');
+    if (re.test($(this).val())) {
+        condition.name = true;
+        $(this).css('color', '#000');
+        return;
+    }
+    condition.name = false;
+    $(this).css('color', '#E9425D');
+}
+
+condition.phoneCheck = function () {
+    var re = new RegExp("^[0-9-]{8,}$", 'ig');
+    if (re.test($(this).val())) {
+        condition.phone = true;
+        $(this).css('color', '#000');
+        return;
+    }
+    condition.phone = false;
+    $(this).css('color', '#E9425D');
+}
+
+
+$('#email').bind('keydown keypress', condition.emailCheck);
+$('#name').bind('keydown keypress', condition.nameCheck);
+$('#phone').bind('keydown keypress', condition.phoneCheck);
+
+
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+
+$('#register-btn').bind('click', function () {
+    if (!condition.name) {
+        alert("이름은 두글자 이상 한글이나 영문으로 작성해주세요.");
+        return;
+    }
+    if (!condition.email) {
+        alert("이메일 형식이 맞지 않습니다.");
+        return;
+    }
+    if (!condition.phone) {
+        alert("전화번호는 하이픈과 숫자만 허용됩니다.");
+        return;
+    }
+
+    $.get('/api/user?name=' + $('#name').val() + '&email=' + $('#email').val() + '&phone=' + $('#phone').val()).done(
+        function () {
+            $('.hide-when-ok').hide();
+            $('.show-when-ok').show();
+            setTimeout(function () {
+                $('.modal').hide("fade", 500);
+            }, 3000);
+        });
+});
