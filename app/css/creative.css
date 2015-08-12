@@ -668,5 +668,12 @@ h2 {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%) !important;
+    -ms-transform: translateX(-50%) translateY(-50%) !important;
     transform: translateX(-50%) translateY(-50%) !important;
+}
+
+#a {
+    padding-top: 7%;
+    padding-bottom: 6%;
 }
